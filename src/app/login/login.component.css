@@ -1,0 +1,111 @@
+.login-form {
+    width: 60vh;
+    height: 70vh;
+    margin: auto;
+    margin-top: 10vh;
+    padding: 40px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+    background-color: #cad6ea;
+   
+  }
+  
+  
+  .please-login {
+    text-align: center;
+    margin-bottom: 7vh;
+    color: #ae2ce2;
+  }
+  
+  .form-group {
+    margin-bottom: 6vh;
+    
+    flex-grow: 1;
+  }
+  
+  label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+  }
+  
+  .password-input {
+    position: relative;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ae2ce2;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #ae2ce2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #7b0992;
+  }
+  
+  .registerBtn {
+    font-size: 15px;
+    background-color: #ae2ce2;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+    width: 35%;
+    height: 5%;
+    margin-top: 2vh;
+    margin-left: 20vh;
+
+  }
+  
+  .registerBtn:hover {
+    background-color:#7b0992;
+  }
+
+  .newUser{
+    padding-top:15vh;
+    color: black;
+    font-weight: 800;
+    font-size: 17px;
+    margin-left: 21.3vh;
+  }
+  
+  small{
+    color: red;
+  }
+
+  .alertMessage{
+    color: red;
+    text-align: center;
+    padding-bottom: 3vh;
+    font-weight: bolder;
+  }
+ 
