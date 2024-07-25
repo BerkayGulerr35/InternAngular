@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { LoginService } from '../login.service';
+import { HttpErrorResponse } from '@angular/common/http'; // Import for HttpErrorResponse
 
 @Component({
   selector: 'app-login',
@@ -38,11 +39,15 @@ export class LoginComponent {
     this.loginService.loginUser(this.loginForm.value).subscribe(
       response => {
         console.log('Login successful', response);
+        // Token ve isAdmin bilgilerini localStorage'a kaydedelim
+        localStorage.setItem('token', response.token);
+        localStorage.setItem('isAdmin', response.customer.isAdmin.toString());
+        // Ana sayfaya yönlendiriyoruz
         this.router.navigate(['/home']);
       },
-      error => {
+      (error: HttpErrorResponse) => { // Specify the type of error
         console.error('Login failed', error);
-        this.errorMessage = '****';
+        this.errorMessage = '** Incorrect email or password **';
       }
     );
   }
@@ -54,7 +59,7 @@ export class LoginComponent {
   }
 
   goToRegister() {
-    // Register sayfasına yönlendirme kodu burada olacak
-    console.log('Redirect to register page');
+    // Register sayfasına yönlendirme kodu
+    this.router.navigate(['/register']);
   }
 }
