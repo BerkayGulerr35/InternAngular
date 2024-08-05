@@ -1,4 +1,4 @@
-<div class="register-form">
+<div *ngIf="!registrationSuccessful; else successTemplate" class="register-form">
   <h2>JOIN US!</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
@@ -52,3 +52,10 @@
     <button type="submit" class="btn btn-primary">Register</button>
   </form>
 </div>
+
+<ng-template #successTemplate>
+  <div class="success-message">
+    <h2>Registration Successful!</h2>
+    <h3 class="sub-message">Routing To Login Page!</h3>
+  </div>
+</ng-template>

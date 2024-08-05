@@ -1,25 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from '../services/admin.service';
+import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { AdminService } from '../admin.service'; // AdminService'in doğru yolda olduğundan emin olun
+import { LayoutComponent } from '../layout/layout.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterModule]
+  imports: [CommonModule, LayoutComponent]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   isAdmin = false;
+  private adminSubscription: Subscription | null = null;
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService, private router: Router) {}
 
   ngOnInit() {
-    this.updateAdminStatus();
+    this.adminSubscription = this.adminService.getAdminStatus().subscribe(status => {
+      this.isAdmin = status;
+    });
   }
 
-  private updateAdminStatus() {
-    this.isAdmin = this.adminService.checkAdminStatus();
+  ngOnDestroy() {
+    if (this.adminSubscription) {
+      this.adminSubscription.unsubscribe();
+    }
   }
 }

@@ -1,9 +1,3 @@
-<div *ngIf="isAdmin; else userContent">
-    <p>Welcome, Admin!</p>
-    <!-- Admin için özel içerik buraya gelecek -->
-  </div>
-  <ng-template #userContent>
-    <p>Welcome, User!</p>
-    <!-- Normal kullanıcı için içerik buraya gelecek -->
-  </ng-template>
+    <app-layout [isAdmin]="isAdmin"></app-layout>
   
+   
