@@ -4,13 +4,14 @@ import { AdminService } from '../services/admin.service';
 import { Subscription } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from '../layout/layout.component';
+import { WelcomeComponent } from "../welcome/welcome.component";
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
   standalone: true,
-  imports: [CommonModule, LayoutComponent]
+  imports: [CommonModule, LayoutComponent, WelcomeComponent]
 })
 export class HomeComponent implements OnInit, OnDestroy {
   isAdmin = false;

@@ -1,4 +1,9 @@
 <nav class="navbar">
+  <div class="navbar-logo">
+    <a href="/">
+      <img src="https://i.pinimg.com/originals/ab/ca/4c/abca4c51c7e166b2980105b5e98b7ac2.jpg" alt="Company Logo" />
+    </a>
+  </div>
   <ng-container *ngIf="isAdmin; else userNav">
     <ul class="nav-list">
       <li><a [routerLink]="'edit-products'" (click)="selectedRoute = 'edit-products'">Edit Products</a></li>
@@ -10,11 +15,13 @@
     <ul class="nav-list">
       <li><a [routerLink]="'profile'" (click)="selectedRoute = 'profile'">Profile</a></li>
       <li><a [routerLink]="'products'" (click)="selectedRoute = 'products'">Products</a></li>
-      <li><a [routerLink]="'discounts'" (click)="selectedRoute = 'discounts'">20% Off</a></li>
       <li><a [routerLink]="'cart'" (click)="selectedRoute = 'cart'">Cart</a></li>
     </ul>
   </ng-template>
 </nav>
+<ng-container *ngIf="!selectedRoute">
+  <app-welcome></app-welcome>
+</ng-container>
 
 <ng-container *ngIf="selectedRoute">
   <router-outlet></router-outlet>

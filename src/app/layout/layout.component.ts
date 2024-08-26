@@ -2,19 +2,22 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { AdminService } from '../services/admin.service';
+import { WelcomeComponent } from '../welcome/welcome.component';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
   standalone: true,
-  imports: [CommonModule, RouterOutlet, RouterModule] 
+  imports: [CommonModule, RouterOutlet, RouterModule, WelcomeComponent] 
 })
 export class LayoutComponent implements OnInit {
   @Input() isAdmin: boolean = false;
   selectedRoute: string | null = null;
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService) {
+    
+  }
 
   ngOnInit(): void {
     this.adminService.getAdminStatus().subscribe(status => {

@@ -1,1 +1,41 @@
-<p>products works!</p>
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of products">
+    <img
+      class="product-image"
+      [src]="product.Resim_URL"
+      alt="{{ product.Urunler_Adi }}"
+    />
+    <h3>{{ product.Urunler_Adi }}</h3>
+    <p>Fiyat: {{ product.Urunler_Fiyat | currency: 'EUR' }}</p>
+    <p>Kategori: {{ product.Kategori_id.Kategori_Adi }}</p>
+    <p>Indirim Orani: {{ product.IndirimOrani * 100 }}%</p>
+    <button (click)="showDetails(product)">Detaylar</button>
+  </div>
+</div>
+
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Geri</button>
+  <span>Sayfa {{ currentPage }} / {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+    İleri
+  </button>
+</div>
+
+<div class="modal" *ngIf="selectedProduct">
+  <div class="modal-content">
+    <span class="close" (click)="closeDetails()">&times;</span>
+    <h2>{{ selectedProduct.Urunler_Adi }}</h2>
+    <img class="modal-image"
+      [src]="selectedProduct.Resim_URL"
+      alt="{{ selectedProduct.Urunler_Adi }}"
+    />
+    <p>Açıklama: {{ selectedProduct.Urunler_Aciklama }}</p>
+    <p>Fiyat: {{ selectedProduct.Urunler_Fiyat | currency: 'TRY' }}</p>
+    <p>Stok Adet: {{ selectedProduct.Stok_Adet }}</p>
+    <p>Kategori: {{ selectedProduct.Kategori_id.Kategori_Adi }}</p>
+    <p>İndirim Oranı: {{ selectedProduct.IndirimOrani * 100 }}%</p>
+    
+    <!-- Sepete Ekle Butonu -->
+    <button (click)="addToCart(selectedProduct)">Sepete Ekle</button>
+  </div>
+</div>

@@ -1,1 +1,23 @@
-<p>edit-products works!</p>
+<div class="product-list">
+  <div class="product-card" *ngFor="let product of products">
+    <img class="product-image" [src]="product.Resim_URL" alt="{{ product.Urunler_Adi }}" />
+    <div class="product-info">
+      <h3 class="product-name">{{ product.Urunler_Adi }}</h3>
+      <p class="product-description">{{ product.Urunler_Aciklama }}</p>
+      <p class="product-price">Fiyat: {{ product.Urunler_Fiyat | currency: 'TRY' }}</p>
+      <p class="product-category">Stok Adet: {{ product.Stok_Adet }}</p>
+      <p class="product-category">Kategori: {{ product.Kategori_id.Kategori_Adi }}</p>
+      <p class="product-category">İndirim Oranı: {{ product.IndirimOrani * 100 }}%</p>
+      <div class="action-buttons">
+        <button (click)="editProduct(product._id)">Edit</button>
+        <button (click)="deleteProduct(product._id)">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pagination">
+  <button (click)="previousPage()" [disabled]="currentPage === 1">Geri</button>
+  <span>Sayfa {{ currentPage }} / {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="currentPage === totalPages">İleri</button>
+</div>

@@ -1,1 +1,30 @@
-<p>profile works!</p>
+<div class="profile-text">
+  You can see all the data you have saved to our database below.
+</div>
+<div class="profile-container">
+  
+    <div class="card">
+      <h3>Name</h3>
+      <p>{{ userProfile.Musteriler_Adi }}</p>
+    </div>
+    <div class="card">
+      <h3>Surname</h3>
+      <p>{{ userProfile.Musteriler_Soyadi }}</p>
+    </div>
+    <div class="card">
+      <h3>Identitiy Number</h3>
+      <p>{{ userProfile.Musteriler_Tc }}</p>
+    </div>
+    <div class="card">
+      <h3>E-mail</h3>
+      <p>{{ userProfile.Musteriler_Email }}</p>
+    </div>
+    <div class="card">
+      <h3>Phone</h3>
+      <p *ngIf="userProfile.Musteriler_Telefon; else noPhone">{{ userProfile.Musteriler_Telefon }}</p>
+      <ng-template #noPhone>
+        <p>The phone number not provided.</p>
+      </ng-template>
+    </div>
+  </div>
+  

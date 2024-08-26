@@ -10,19 +10,16 @@ import { EditProductsComponent } from './edit-products/edit-products.component';
 import { UserListComponent } from './user-list/user-list.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AuthGuard } from './guards/auth.guard';
+import { WelcomeComponent } from './welcome/welcome.component';
+
 
 export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
-  {
     path: 'home',
     component: LayoutComponent,
-    canActivate: [AuthGuard], 
+    canActivate: [AuthGuard],
     children: [
       { path: '', component: HomeComponent },
       { path: 'profile', component: ProfileComponent },
@@ -30,8 +27,11 @@ export const routes: Routes = [
       { path: 'cart', component: CartComponent },
       { path: 'edit-products', component: EditProductsComponent },
       { path: 'user-list', component: UserListComponent },
-      { path: 'settings', component: SettingsComponent }
+      { path: 'settings', component: SettingsComponent },
     ]
   },
-  
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
 ];

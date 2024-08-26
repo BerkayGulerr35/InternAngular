@@ -2,27 +2,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Layout altında merkezi konumlandırma */
-    background-color: #f9f9f9; /* Ana sayfa arka plan rengi */
+    min-height: 80vh; 
+    background-color: #f9f9f9; 
   }
   
   .welcome-banner {
     text-align: center;
-    background-color: #ae2ce2; /* Tema rengi */
+    background-color: #ae2ce2; 
     padding: 50px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    animation: slideIn 1.5s ease-out; /* Smooth giriş animasyonu */
+    animation: slideIn 1.5s ease-out; 
   }
   
   .welcome-banner h1 {
-    color: #ffffff; /* Başlık rengi */
+    color: #ffffff; 
     margin: 0 0 15px 0;
     font-size: 40px;
   }
   
   .welcome-banner p {
-    color: #ffffff; /* Açıklama yazısı rengi */
+    color: #ffffff;
     font-size: 20px;
   }
   
@@ -36,4 +36,5 @@
       transform: translateY(0);
     }
   }
+  
   
